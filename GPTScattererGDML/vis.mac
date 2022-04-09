@@ -1,0 +1,37 @@
+
+# Create "scene-0" 
+/vis/scene/create
+
+# Invoke the OpenInventor driver 
+#/vis/sceneHandler/create OGLIX
+/vis/sceneHandler/create OGLIQt
+/vis/open OGLIQt
+/vis/viewer/create ! ! 720x480+1000+0
+
+# Add the world volume to the current scene
+/vis/scene/add/volume
+/vis/scene/add/trajectories
+/tracking/storeTrajectory 1
+
+/vis/viewer/reset
+/vis/viewer/set/background 0 0 0
+/vis/viewer/set/viewpointVector  -1 0 0
+/vis/viewer/set/style surface
+#/vis/viewer/addCutawayPlane -0.001 0 0 m 0 1 0
+/vis/viewer/set/lightsVector  1 0.1 0.5
+/vis/viewer/set/upVector  0 1 0
+/vis/viewer/zoomTo 1.0
+/vis/viewer/panTo 0 0 m
+/vis/viewer/set/edge 1
+
+
+
+
+/vis/scene/notifyHandlers
+
+/control/verbose 2
+
+/vis/viewer/update
+/vis/scene/endOfEventAction accumulate 1000
+#/vis/scene/endOfEventAction maxNumber 1000
+/vis/scene/endOfRunAction refresh

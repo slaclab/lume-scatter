@@ -1,0 +1,57 @@
+############ physics models set here #################
+/control/execute physics.mac
+
+#/geometry/material/add NaI Na-I 3.67
+# material definitions has to be done before /run/initilalize
+/run/verbose 0
+/run/initialize
+/run/setCut 0.01 um
+#/geometry/textInput/verbose 2
+#
+###############################
+# visuslization
+#
+/control/execute vis.mac
+
+# Adjust trajectory colors
+/vis/modeling/trajectories/create/drawByParticleID myModel
+/vis/modeling/trajectories/myModel/set geantino yellow
+/vis/modeling/trajectories/myModel/set gamma red
+/vis/modeling/trajectories/myModel/set e- cyan
+/vis/modeling/trajectories/myModel/set e+ cyan
+/vis/modeling/trajectories/myModel/set proton green
+/vis/modeling/trajectories/myModel/setRGBA anti_nu_e 1.0 0.3 0.3 1.0
+/vis/modeling/trajectories/myModel/setRGBA nu_e 1.0 0.3 0.3 1.0
+/vis/modeling/trajectories/myModel/set neutron blue
+#
+/vis/filtering/trajectories/create/particleFilter
+/vis/filtering/trajectories/particleFilter-0/add geantino
+/vis/filtering/trajectories/particleFilter-0/add e-
+/vis/filtering/trajectories/particleFilter-0/add gamma
+#/vis/filtering/trajectories/particleFilter-0/invert true
+#/vis/filtering/trajectories/particleFilter-0/verbose true
+#/vis/filtering/trajectories/particleFilter-0/active false
+#
+#/event/draw all
+#/event/draw gamma
+
+
+######################################################
+# Gun
+######################################################
+# Particle
+/gun/particle e-
+
+##### Position
+/gun/position 0 0 0 mm
+#
+##### direction for source ########
+/gun/direction 0 0 1
+#
+##### energy ########
+/gun/energy 800 keV
+#/run/beamOn 1
+#/tracking/verbose 3
+
+/vis/disable
+/tracking/storeTrajectory 0
