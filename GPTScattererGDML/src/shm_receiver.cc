@@ -76,6 +76,7 @@ void shm_receiver::start() {
 	UI->ApplyCommand(mybuf);
 
 	n  = sprintf(mybuf, "/gun/direction %f %f %f", in.dir.x, in.dir.y, in.dir.z);
+	UI->ApplyCommand(mybuf);
 	G4cout << mybuf << G4endl;
 	
 
