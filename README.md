@@ -54,7 +54,7 @@ This will create a `gpt` executable linked to the geant4scatterer.
 ## Compiling the Geant4 application
 1. [Geant4](https://geant4.web.cern.ch/) must be already installed on
    your system.
-2. Make sure the needed environmental variables are set bu issuing:
+2. Make sure the needed environmental variables are set by issuing:
 `source PATH_TO_GEANT/geant4.10.07.p02-build/geant4make.sh`
 3. `cd` to the GPTScattererGDML directory and
 4. type` make`, or `gmake`
